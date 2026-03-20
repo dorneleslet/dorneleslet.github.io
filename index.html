@@ -1,53 +1,177 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Letícia Dorneles | Portfólio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-
-    .hero {
-      margin-top: 120px;
-    }
-
-    h1 {
-      font-size: 40px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      background: #7c3aed;
-      padding: 12px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-    }
-
-    section {
-      margin-top: 100px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lee | Portfólio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">Lee.dev</a>
 
-  <div class="hero">
-    <h1>Letícia Dorneles 👩‍💻</h1>
-    <p>QA Tester | Python | Django</p>
-    <a href="#projetos" class="btn">Ver Projetos</a>
-  </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+        ☰
+      </button>
 
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <p>Sistema de clientes e serviços (Django)</p>
-  </section>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">QA Tester • Cypress • Postman</p>
+        <h1>Letícia Dorneles</h1>
+        <p class="hero-text">
+          Estou construindo minha carreira em QA com foco em testes automatizados,
+          garantindo sempre a qualidade nos projetos.
+          Este portfólio reúne minha evolução,
+          projetos e experiência prática.
+        </p>
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+          <a href="#contato" class="btn btn-secondary">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2 class="section-title">Sobre mim</h2>
+        <div class="card">
+          <p>
+            Atualmente estou em transição para a área de QA Tester, estudando fundamentos
+            de testes, automação com JavaScript, testes de API e boas práticas de qualidade.
+            Também desenvolvi um projeto com Django, criando soluções para gestão de clientes,
+            serviços, caixa e estoque.
+          </p>
+          <p>
+            Minha experiência une atenção aos detalhes, visão de processo, organização
+            e prática diretamente com desenvolvimento web, o que me ajuda a enxergar a qualidade
+            tanto do ponto de vista do usuário quanto do sistema.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <div class="container">
+        <h2 class="section-title">Projetos em destaque</h2>
+        <div class="grid">
+          <article class="card project-card">
+            <h3>Sistema de Clientes</h3>
+            <p>
+              Sistema em Django para cadastro, busca e edição de clientes, com foco em
+              organização e usabilidade.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <h3>Sistema de Serviços</h3>
+            <p>
+              Módulo para cadastro e atualização de serviços com integração entre frontend,
+              JavaScript e backend em Django.
+            </p>
+          </article>
+
+          <article class="card project-card">
+            <h3>Caixa e Estoque</h3>
+            <p>
+              Projeto em evolução para controle financeiro e gerenciamento de estoque,
+              pensado para uso em negócio real.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <div class="container">
+        <h2 class="section-title">Experiência profissional</h2>
+        <div class="card">
+          <h3>Marketing, conteúdo e web developer</h3>
+          <span class="tag">Salão de cabeleireiro</span>
+          <p>
+            Atuação principal com social media, criação e edição de vídeos. <br>
+            Com a necessidade de gerir o caixa, estoque e gestão de clientes, desenvolvi um sistema web interno
+            para gestão de caixa, estoque, cadastro de clientes e fichas técnicas, fazendo o uso de linguagens como Python, JavaScript,
+            HTML e CSS no desenvolvimento da aplicação. Este sistema foi desenvolvido com foco em utilizar o produto final para iniciar
+            meus estudos na área de QA. <br>
+            Neste projeto foram feitos planeamento e execução de testes manuais e automatizados, incluindo elaboração de plano de testes e casos de teste. <br>
+            Automação de testes com Cypress, cobrindo fluxos funcionais da aplicação. <br>
+            Validação de APIs com Postman. <br>
+            Utilização de Git e GitHub para controlo de versão e gestão do código. <br>
+            Aplicação de metodologias ágeis, com uso predominante de Kanban (e conhecimento de Scrum) para organização e acompanhamento das tarefas.
+          </p>
+        </div>
+        <br>
+        <div class="card">
+          <h3>Analista de TI Trainee</h3>
+          <span class="tag">Primetek Computadores</span>
+          <p>
+            Atendimento e suporte técnico de primeiro nível via telefone, chat e e-mail. <br>
+            Abertura, acompanhamento e encerramento de chamados. <br>
+            Gerenciamento de usuários e permissões via Active Directory. <br>
+            Contato com clientes para aplicação de surveys e acompanhamento de chamados. <br>
+            Criação de base de conhecimento dos processos do departamento. <br>
+          </p>
+        </div>
+        <br>
+        <div class="card">
+          <h3>Secretária Pedagógica</h3>
+          <span class="tag">Grupo Olimpo</span>
+          <p>
+            Criação de planilhas automatizadas com VBA para gerar correções de provas e simulados das unidades. <br>
+            Organização de mapas de sala e logística de aplicação de avaliações em múltiplas unidades do Grupo Olimpo. <br>
+          </p>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section id="cursos" class="section">
+      <div class="container">
+        <h2 class="section-title">Cursos e certificações</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>CTFL</h3>
+            <p>Certificação em andamento.</p>
+          </div>
+
+          <div class="card">
+            <h3>Python</h3>
+            <p>Estudos voltados para lógica, automação e fundamentos de OOP.</p>
+          </div>
+
+          <div class="card">
+            <h3>Django</h3>
+            <p>Desenvolvimento web com foco em sistemas completos e integração frontend/backend.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <div class="card">
+          <p><strong>Email:</strong> seuemail@email.com</p>
+          <p><strong>GitHub:</strong> github.com/dorneleslet</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/seu-perfil</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
