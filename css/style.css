@@ -237,4 +237,15 @@ ul {
   a:hover {
     text-decoration: underline;
   }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .project-link:hover {
+    transform: translateY(-5px); /* Dá um efeito visual legal ao passar o mouse */
+  }
+
 }
