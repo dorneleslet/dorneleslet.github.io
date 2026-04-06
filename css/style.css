@@ -228,4 +228,13 @@ ul {
   .menu-toggle {
     display: block;
   }
+
+  a {
+  color: #a855f7;
+  transition: 0.3s;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
