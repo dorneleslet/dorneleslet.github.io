@@ -39,8 +39,116 @@
           
         </ul>
         <br>
-        <h3>Funcionalidades</h3>
+        <h3>Funcionalidades e Regras de Negócio</h3>
         <p>O sistema conta com controle de fluxo de caixa com histórico e registros de recibos, cadastro detalhado de clientes com fichas técnicas de procedimentos, gerenciamento de estoque com histórico de entrada e saída de produtos.</p>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h4 class="category">Clientes</h4>
+            <span class="accordion-icon">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li>&#10003; Nome, telefone e NIF são campos obrigatórios para cadastro de cliente.</li>
+              <li>&#10003; Telefone valida se tem formato válido (ex.: apenas números no formato +XXX XXX XXX XXX).</li>
+              <li>&#10003; NIF deve ser único para cada cliente, valida se é padrão de Portugal (9 dígitos) e se outro cliente já possui o mesmo NIF.</li>
+              <li>&#10003; Email, se preenchido, valida se tem formato válido.</li>
+              <li>&#10003; Data de nascimento, se preenchido, valida se tem formato válido DD/MM/AAAA e ano deve ser ≤ ano atual.</li>
+              <li>&#10003; Clientes ativos indica se o cliente ainda é atendido, enquanto clientes inativos não devem aparecer em buscas de venda ou cadastro de fichas.</li>
+              <li>&#10003; Ao excluir cliente, as fichas devem ser removidas.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h4 class="category">Fichas de Atendimento</h4>
+            <span class="accordion-icon">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+                <li>&#10003; Cliente é obrigatório para fazer o cadastro da ficha</li>
+                <li>&#10003; Preço deve ser ≥ 0.</li>
+                <li>&#10003; Data do procedimento não pode ser uma data futura.</li>
+                <li>&#10003; Profissional é opcional, mas essencial para informar quem realizou o atendimento.</li>
+                <li>&#10003; Procedimento, homecare e observação são opcionais, mas têm limite de caracteres.</li>
+                <li>&#10003; Ao excluir um cliente, todas as fichas dele são excluídas.</li>
+                <li>&#10003; Cada ficha deve registrar o valor do serviço/produto naquela data, não dependendo de atualizações futuras de preço do serviço/produto.</li>
+                <li>&#10003; Histórico: fichas ordenadas da mais recente para a mais antiga.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h4 class="category">Estoque</h4>
+            <span class="accordion-icon">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+                <li>&#10003; Nome e preço são obrigatórios.</li>
+                <li>&#10003; Preço deve ser &gt; 0.</li>
+                <li>&#10003; Quantidade não pode ser negativa, caso não tenha estoque ainda pode ser criado com quantidade 0 e ser atualizada posteriormente, a quantidade é controlada por entradas e saídas.</li>
+                <li>&#10003; Não é permitido vender produto com estoque insuficiente.</li>
+                <li>&#10003; Movimentações de estoque devem registrar tipo (entrada/saída), quantidade e data.</li>
+                <li>&#10003; Produto pode ter descrição opcional.</li>
+                <li>&#10003; Produtos com quantidade 0 devem aparecer como “sem estoque” em vendas.</li>
+                <li>&#10003; Produto e tipo (entrada/saída) são obrigatórios para fazer movimentação no estoque.</li>
+                <li>&#10003; Tipo deve ser apenas entrada ou saída.</li>
+                <li>&#10003; Ao criar uma saída (venda no caixa), valida se o produto possui estoque suficiente.</li>
+                <li>&#10003; Cliente pode ser opcional, mas se estiver preenchido indica que a saída está ligada a uma venda.</li>
+                <li>&#10003; Movimentação no estoque
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;• Entrada:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Adiciona quantidade ao estoque pela edição do produto.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;• Saída:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Verifica se quantidade &gt; 0.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Verifica estoque suficiente.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Cria movimentação no estoque do tipo 'SAIDA'.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Associa cliente, se informado.
+                </li>
+                <li>&#10003; Relatório do estoque filtra por data, cliente e produto, mostrando entradas, saídas e quantidade atual de cada produto.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h4 class="category">Serviços</h4>
+            <span class="accordion-icon">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+                <li>&#10003; Nome e preco são obrigatórios.</li>
+                <li>&#10003; Preço deve ser &gt; 0.</li>
+                <li>&#10003; Preço do serviço deve ser congelado ao criar uma venda, preservando o valor no histórico das vendas antigas.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h4 class="category">Caixa</h4>
+            <span class="accordion-icon">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+                <li>&#10003; Cliente é opcional, mas essencial, caso não tenha o registro fica como “Não informado”.</li>
+                <li>&#10003; Data por padrão é a data e hora local do dispositivo.</li>
+                <li>&#10003; Desconto e sinal são opcionais, pode ser ≥ 0.</li>
+                <li>&#10003; Valor total deve ser > 0 (não pode ser negativo nem zero).</li>
+                <li>&#10003; Profissional opcional, mas essencial para informar quem realizou o atendimento.</li>
+                <li>&#10003; Forma de pagamento é obrigatório, deve ser uma das opções definidas.</li>
+                <li>&#10003; Quantidades sempre 1 por registro; multiplicar registro se necessário.</li>
+                <li>&#10003; Fatura deve ser 'sim' ou 'nao' de acordo com desejo da cliente, caso não seja selecionado salva como 'nao'.</li>
+                <li>&#10003; Ao finalizar venda:
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;- Valida estoque dos produtos (tem um campo no caixa mostrando a quantidade de estoque real).
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;- Valida valor total ≥ 0, caso não seja validado a venda não é finalizada e uma mensagem de erro aparece na tela.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;- A quantidade dos produtos vendidos é atualizada no estoque assim que a venda é finalizada no caixa.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;- Os nomes e valores de produtos/serviços são congelados no recibo para evitar alterações de valor/nome em recibos antigos caso tenha alteração de preço ou nome no futuro.</li>
+                <li>&#10003; Pelo menos produto ou servico deve estar preenchido.</li>
+                <li>&#10003; Quantidade de produto ou serviço é sempre 1, caso a cliente vá pagar 2 serviços/produtos iguais, deve ser adicionado o serviço/produto 2 vezes.</li>
+                <li>&#10003; Produto ou serviço deve ser preenchido no momento da venda para congelar no histórico das vendas e no recibo da cliente.</li>
+                <li>&#10003; Não permite vender mais do que estoque disponível.</li>
+                <li>&#10003; Atualizações de preço ou nome do produto/serviço não devem afetar vendas já registradas.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
   </main>
