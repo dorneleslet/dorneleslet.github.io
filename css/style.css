@@ -202,6 +202,24 @@ ul {
   font-size: 0.9rem;
 }
 
+.tag-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.tag-yellow {
+  background-color: #fff3e0;
+  color: #b26a00;
+  border: 1px solid #ffcc80;
+}
+
+.tag-orange {
+  background-color: #fbe9e7;
+  color: #d84315;
+  border: 1px solid #ffab91;
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
