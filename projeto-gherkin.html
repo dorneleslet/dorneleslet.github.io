@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casos de Teste Gherkin | Detalhes do Projeto</title>
+  <title>Automação Cypress + Cucumber | Detalhes do Projeto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -14,27 +15,163 @@
     </nav>
   </header>
 
+  
   <main class="section">
     <div class="container">
-      <h1 class="section-title">Casos de teste com Gherkin</h1>
       <div class="card">
-        <p>Testes end-to-end do site Adopet — cobrindo os fluxos de cadastro, login, e contato com adotante, aplicando boas práticas de BDD
+      <span class="hero-tag"><span class="hero-dot"></span>Test Automation · Cypress · Cucumber</span>
+      <h1 class="section-title">Automação de Testes com Cypress + Cucumber BDD</h1>
+        <p>Testes end-to-end do site Adopet — cobrindo os fluxos de cadastro, login, e contato com adotante, aplicando boas práticas de BDD (Behavior Driven Development)
           para descrever comportamentos e cenários de teste de forma clara para times de negócio e técnicos.</p>
-        <span class="tag tag-green">Cypress</span>
-        <span class="tag tag-green">Cucumber</span>
-        <span class="tag tag-yellow">Gherkin</span>
-        <span class="tag tag-yellow">JavaScript</span>
-        <span class="tag tag-orange">BDD</span>
-        <span class="tag tag-orange">E2E Testing</span>
-        <h3>O que foi desenvolvido</h3>
-        <ul>
-          <li>Criação de histórias de usuário e critérios de aceitação.</li>
-          <li>Escrita de cenários estruturados com "Dado", "Quando" e "Então".</li>
-          <li>Mapeamento de caminhos felizes e fluxos de exceção.</li>
-        </ul>
+        <div class="pill-row">
+          <span class="pill pill-green">Cypress</span>
+          <span class="pill pill-green">Cucumber</span>
+          <span class="pill pill-amber">Gherkin</span>
+          <span class="pill pill-amber">JavaScript</span>
+          <span class="pill pill-coral">BDD</span>
+          <span class="pill pill-coral">E2E Testing</span>
+        </div>
+        <br><br>
+        <h3>Processo de trabalho</h3>
+        <!-- <ul>
+          <li>&#10003; Inicialmente, realizei testes manuais (exploratórios e funcionais) para entender o comportamento do sistema. A partir disso, modelei cenários de teste em Gherkin e evoluí para a automação utilizando Cypress integrado ao Cucumber.</li>
+          <li>&#10003; Escrita de cenários de teste no padrão Gherkin (Given, When, Then)</li>
+          <li>&#10003; Implementação de Step Definitions conectando Gherkin ao código</li>
+          <li>&#10003; Automação de fluxos completos (E2E)</li>
+          <li>&#10003; Testes de login, cadastro e contato</li>
+          <li>&#10003; Organização dos testes seguindo boas práticas de legibilidade</li>
+        </ul> -->
+        <!-- Processo -->
+        <!-- <p class="section-label">Processo de trabalho</p> -->
+        <div class="process-flow">
+          <div class="proc-step">
+            <div class="proc-num">Fase 01</div>
+            <div class="proc-icon">🔍</div>
+            <div class="proc-title">Teste exploratório</div>
+            <div class="proc-desc">Navegação livre para entender o sistema e identificar os comportamentos existentes</div>
+          </div>
+          <div class="proc-arrow">→</div>
+          <div class="proc-step">
+            <div class="proc-num">Fase 02</div>
+            <div class="proc-icon">📋</div>
+            <div class="proc-title">Teste funcional</div>
+            <div class="proc-desc">Validação estruturada dos fluxos e mapeamento dos cenários a serem automatizados</div>
+          </div>
+          <div class="proc-arrow">→</div>
+          <div class="proc-step">
+            <div class="proc-num">Fase 03</div>
+            <div class="proc-icon">⚙️</div>
+            <div class="proc-title">Automação BDD</div>
+            <div class="proc-desc">Escrita dos cenários em Gherkin e implementação das step definitions em Cypress</div>
+          </div>
+        </div>
 
-        <h3>Benefícios</h3>
-        <p>Facilita o desenvolvimento orientado a comportamento (BDD) e serve como documentação viva do sistema.</p>
+        <br>
+        <h3>Stack utilizada</h3>
+        <!-- Stack -->
+        <!-- <p class="section-label">Stack utilizada</p> -->
+        <div class="stack-grid">
+          <div class="stack-card">
+            <div class="stack-icon">🌲</div>
+            <h3>Cypress</h3>
+            <p>Framework de testes E2E com execução em browser real e feedback instantâneo</p>
+          </div>
+          <div class="stack-card">
+            <div class="stack-icon">🥒</div>
+            <h3>Cucumber</h3>
+            <p>Integração via @badeball/cypress-cucumber-preprocessor para executar features Gherkin</p>
+          </div>
+          <div class="stack-card">
+            <div class="stack-icon">📝</div>
+            <h3>Gherkin</h3>
+            <p>Linguagem natural para descrever cenários com Given / When / Then</p>
+          </div>
+        </div> 
+
+        <br>
+
+        <h3>Decisões técnicas e desafios</h3>
+        <!-- Desafios -->
+        <!-- <p class="section-label">Decisões técnicas & desafios</p> -->
+        <div class="card-box">
+          <div class="challenge-item">
+            <div class="ch-marker ch-green"></div>
+            <div class="ch-content">
+              <h4>Testes estáveis sem cy.wait</h4>
+              <p>Usei <code>.should('be.visible')</code> combinado com <code>timeout</code> nos asserts de mensagens de erro, evitando esperas fixas e tornando os testes mais resilientes a variações de latência.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="ch-marker ch-green"></div>
+            <div class="ch-content">
+              <h4>Seletores robustos com data-test</h4>
+              <p>Priorizei atributos <code>data-test</code> em vez de classes CSS ou textos visíveis, garantindo que mudanças de layout não quebrem os testes desnecessariamente.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="ch-marker ch-coral"></div>
+            <div class="ch-content">
+              <h4>Fragilidade na tela de contato</h4>
+              <p>A página de contato não segue o padrão <code>data-test</code> do restante do sistema. Os seletores usam IDs genéricos (<code>#name</code>, <code>#phone</code>), o que torna essa parte mais suscetível a quebras — identificado e documentado como ponto de melhoria.</p>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <h3>O que aprendi e apliquei</h3>
+        <!-- <ul>
+          <li>&#10003; Importância de testes estáveis e não flaky</li>
+          <li>&#10003; Como estruturar testes legíveis usando BDD</li>
+          <li>&#10003; Boas práticas de automação E2E</li>
+          <li>&#10003; Pensamento crítico na identificação de falhas reais do sistema</li>
+        </ul> -->
+
+        <!-- Aprendizados -->
+        <!-- <p class="section-label">O que aprendi e apliquei</p> -->
+        <div class="learnings">
+          <div class="learn-card">
+            <div class="learn-num">01</div>
+            <div>
+              <h4>Testes exploratórios como base</h4>
+              <p>Entender o sistema de forma livre antes de automatizar garante cenários mais realistas e completos.</p>
+            </div>
+          </div>
+          <div class="learn-card">
+            <div class="learn-num">02</div>
+            <div>
+              <h4>Linguagem Gherkin</h4>
+              <p>Descrever cenários com Given, When e Then aproxima a especificação do negócio da automação.</p>
+            </div>
+          </div>
+          <div class="learn-card">
+            <div class="learn-num">03</div>
+            <div>
+              <h4>Step definitions reutilizáveis</h4>
+              <p>Conectar os passos Gherkin ao JavaScript com parâmetros dinâmicos, mantendo organização e reuso.</p>
+            </div>
+          </div>
+          <div class="learn-card">
+            <div class="learn-num">04</div>
+            <div>
+              <h4>Estabilidade de testes</h4>
+              <p>Identificar e corrigir testes flaky, substituindo esperas fixas por asserts condicionais e timeouts.</p>
+            </div>
+          </div>
+          <div class="learn-card">
+            <div class="learn-num">05</div>
+            <div>
+              <h4>Análise crítica do sistema</h4>
+              <p>Reconhecer inconsistências no front-end, como a ausência de <code>data-test</code>, e documentá-las como riscos de manutenção.</p>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <h3>Repositório no GitHub:</h3>
+        <p>
+        <a href="https://github.com/dorneleslet/automacao-cypress" target="_blank">Você pode ver o projeto clicando aqui</a>
+        </p>
       </div>
     </div>
   </main>
