@@ -492,3 +492,12 @@ ul {
     .stack-icon { font-size: 22px; margin-bottom: .5rem; }
     .stack-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
     .stack-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .process-flow { grid-template-columns: 1fr; gap: 8px; }
+  .proc-arrow { transform: rotate(90deg); }
+  .stack-grid { grid-template-columns: 1fr 1fr; }
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .learnings { grid-template-columns: 1fr; }
+}
